@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Guess the Number Game</title>
+  </head>
+  <body>
+    <h1>Guess the Number Game</h1>
+    <script>
+      const secretNumber = Math.floor(Math.random() * 100) + 1;
+      let tries = 0;
+      let guess = NaN;
+
+      while (tries < 5 && guess !== secretNumber) {
+        guess = parseInt(prompt("Guess the secret number between 1 and 100"));
+
+        if (isNaN(guess)) {
+          alert("Number required, please try again.");
+        } else if (guess < 1 || guess > 100) {
+          alert("The number should be between 1 and 100, please try again.");
+        } else if (guess < secretNumber) {
+          alert("Too low, try again!");
+        } else if (guess > secretNumber) {
+          alert("Too high, try again!");
+        } else {
+          alert("Congratulations, you guessed the number!");
+        }
+        tries++;
+      }
+      if (tries === 5 && guess !== secretNumber) {
+        alert("Sorry, tries are only up to five. Better luck next time! The secret number was " + secretNumber + ".");
+      }
+    </script>
+  </body>
+</html>
